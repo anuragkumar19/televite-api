@@ -1,14 +1,7 @@
 import jwt from 'jsonwebtoken'
 import { Document, model, Schema } from 'mongoose'
 import { genUid } from '../utils/uid'
-
-interface User {
-    email: string
-    otp?: number
-    otpExpiration?: number
-    generateAccessToken: () => string
-    generateRefreshToken: () => string
-}
+import { User } from './types'
 
 const UserSchema = new Schema<User>(
     {
@@ -16,15 +9,9 @@ const UserSchema = new Schema<User>(
             type: String,
             required: true,
         },
-        otp: {
-            type: Number,
-        },
-        otpExpiration: {
-            type: Number,
-        },
-        uid: {
-            type: Number,
-        },
+        otp: Number,
+        otpExpiration: Number,
+        uid: Number,
     },
     {
         timestamps: true,

@@ -1,12 +1,12 @@
-import { Request, Response } from 'express'
 import asyncHandler from 'express-async-handler'
 import jwt, { JwtPayload } from 'jsonwebtoken'
 import { __prod__ } from '../constants'
 import User from '../models/User'
 import { sendOtp } from '../utils/email'
 import { genOtp } from '../utils/otp'
+import { ExpressHandler } from '../types'
 
-export const login = asyncHandler(async (req: Request, res: Response) => {
+export const login: ExpressHandler = asyncHandler(async (req, res) => {
     const { email } = req.body
 
     let user = await User.findOne({ email })
@@ -23,7 +23,7 @@ export const login = asyncHandler(async (req: Request, res: Response) => {
     res.status(200).json({ message: 'Otp send!' })
 })
 
-export const verifyOtp = asyncHandler(async (req: Request, res: Response) => {
+export const verifyOtp: ExpressHandler = asyncHandler(async (req, res) => {
     const { email, otp } = req.body
 
     const user = await User.findOne({ email })
@@ -67,36 +67,34 @@ export const verifyOtp = asyncHandler(async (req: Request, res: Response) => {
     res.status(200).json({ data: { accessToken, refreshToken } })
 })
 
-export const refreshToken = asyncHandler(
-    async (req: Request, res: Response) => {
-        const refreshToken: string =
-            req.cookies[process.env.REFRESH_TOKEN_COOKIE_NAME] ||
-            req.body.refreshToken
+export const refreshToken: ExpressHandler = asyncHandler(async (req, res) => {
+    const refreshToken: string =
+        req.cookies[process.env.REFRESH_TOKEN_COOKIE_NAME] ||
+        req.body.refreshToken
 
-        if (!refreshToken) {
-            res.status(401)
-            throw new Error('Unauthorized.')
-        }
-
-        try {
-            const { id } = jwt.verify(
-                refreshToken,
-                process.env.JWT_REFRESH_TOKEN_SECRET
-            ) as JwtPayload
-
-            const user = await User.findById(id)
-
-            if (!user) {
-                res.status(401)
-                throw new Error('Unauthorized.')
-            }
-
-            const accessToken = user.generateAccessToken()
-
-            res.status(200).json({ data: { accessToken } })
-        } catch (err) {
-            res.status(401)
-            throw new Error('Unauthorized.')
-        }
+    if (!refreshToken) {
+        res.status(401)
+        throw new Error('Unauthorized.')
     }
-)
+
+    try {
+        const { id } = jwt.verify(
+            refreshToken,
+            process.env.JWT_REFRESH_TOKEN_SECRET
+        ) as JwtPayload
+
+        const user = await User.findById(id)
+
+        if (!user) {
+            res.status(401)
+            throw new Error('Unauthorized.')
+        }
+
+        const accessToken = user.generateAccessToken()
+
+        res.status(200).json({ data: { accessToken } })
+    } catch (err) {
+        res.status(401)
+        throw new Error('Unauthorized.')
+    }
+})

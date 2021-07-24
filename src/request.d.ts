@@ -1,9 +1,10 @@
-import { AnyNaptrRecord } from 'dns'
+import { User } from './models/types'
+import { Document } from 'mongoose'
 
 declare global {
     namespace Express {
         interface Request {
-            user: any
+            user: (User & Document) | null | undefined
         }
     }
 }

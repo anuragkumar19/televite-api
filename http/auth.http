@@ -12,12 +12,13 @@ Content-Type: application/json
 
 {
     "email":"test@anurag.com",
-    "otp":4658
+    "otp":9884
 }
 
 ### Route POST /api/auth/refresh-token
 POST http://localhost:3005/api/auth/refresh-token
 Content-Type: application/json
+Cookie: "refresh_token=..."
 
 {
     "refreshToken":"...token OPTIONAL (if not present in cookie)"
@@ -26,4 +27,4 @@ Content-Type: application/json
 
 ### temp test
 GET http://localhost:3005/private
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZmJiMmIwZGM4ZDQ5Mjc1Y2NlZDYxYSIsImlhdCI6MTYyNzExMzI5MywiZXhwIjoxNjI3MTEzNTkzfQ.3cSEws_nhxn4zv9ZmitdsLqzftut0_o7IM6Ebf3YCPU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZmJiMmIwZGM4ZDQ5Mjc1Y2NlZDYxYSIsImlhdCI6MTYyNzEyNzI2NywiZXhwIjoxNjI3MTI3NTY3fQ._Hg0_QiIB1JN4m9aj53nbZDMJZv54ZMAHSFlTiz4ceA

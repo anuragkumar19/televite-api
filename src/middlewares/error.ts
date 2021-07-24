@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from 'express'
 import { sentenceCase } from 'sentence-case'
+import { ExpressHandler } from '../types'
 
-export const notFound = (_req: Request, res: Response) => {
+export const notFound: ExpressHandler = (_req, res) => {
     res.status(404).json({ message: 'Not Found' })
 }
 

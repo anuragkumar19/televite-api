@@ -1,10 +1,10 @@
-import { NextFunction, Request, Response } from 'express'
 import asyncHandler from 'express-async-handler'
 import jwt, { JwtPayload } from 'jsonwebtoken'
 import User from '../models/User'
+import { ExpressHandler } from '../types'
 
-export const userMiddleware = asyncHandler(
-    async (req: Request, _res: Response, next: NextFunction) => {
+export const userMiddleware: ExpressHandler = asyncHandler(
+    async (req, _res, next) => {
         const Authorization = req.header('Authorization')
 
         if (Authorization && typeof Authorization === 'string') {
@@ -30,11 +30,7 @@ export const userMiddleware = asyncHandler(
     }
 )
 
-export const authorizeUserOnly = (
-    req: Request,
-    res: Response,
-    next: NextFunction
-) => {
+export const authorizeUserOnly: ExpressHandler = (req, res, next) => {
     if (!req.user) {
         res.status(401)
         throw new Error('Unauthorized.')
