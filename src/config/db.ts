@@ -1,16 +1,14 @@
 import { connect } from 'mongoose'
+import { MONGO_URI } from '../constants'
 
 export default async () => {
     try {
-        const conn = await connect(
-            `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}/${process.env.DATABASE_NAME}-${process.env.NODE_ENV}?retryWrites=true&w=majority`,
-            {
-                useNewUrlParser: true,
-                useCreateIndex: true,
-                useUnifiedTopology: true,
-                useFindAndModify: false,
-            }
-        )
+        const conn = await connect(MONGO_URI, {
+            useNewUrlParser: true,
+            useCreateIndex: true,
+            useUnifiedTopology: true,
+            useFindAndModify: false,
+        })
 
         console.log(
             `Database connected: ${conn.connection.host}`.blue.underline.bold

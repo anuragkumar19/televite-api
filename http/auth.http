@@ -1,0 +1,29 @@
+### Route POST /api/auth/login
+POST http://localhost:3005/api/auth/login
+Content-Type: application/json
+
+{
+    "email":"test@anurag.com"
+}
+
+### Route POST /api/auth/verify-otp
+POST http://localhost:3005/api/auth/verify-otp
+Content-Type: application/json
+
+{
+    "email":"test@anurag.com",
+    "otp":4658
+}
+
+### Route POST /api/auth/refresh-token
+POST http://localhost:3005/api/auth/refresh-token
+Content-Type: application/json
+
+{
+    "refreshToken":"...token OPTIONAL (if not present in cookie)"
+}
+
+
+### temp test
+GET http://localhost:3005/private
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZmJiMmIwZGM4ZDQ5Mjc1Y2NlZDYxYSIsImlhdCI6MTYyNzExMzI5MywiZXhwIjoxNjI3MTEzNTkzfQ.3cSEws_nhxn4zv9ZmitdsLqzftut0_o7IM6Ebf3YCPU
