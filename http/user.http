@@ -1,0 +1,33 @@
+### Get Logged In User
+
+### Route GET /api/user/me
+GET http://localhost:3005/api/user/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDE0MzMzN2E5N2MwMWY2NDUxYTg3NCIsImlhdCI6MTYyNzQ3NjU0NCwiZXhwIjoxNjI3NDc2ODQ0fQ.Koy_24Fc8sZx1picZpm0niu3NpHMNlabRiUwktivU9s
+
+### Route PUT /api/user/update/name
+PUT http://localhost:3005/api/user/update/name
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDE0MzMzN2E5N2MwMWY2NDUxYTg3NCIsImlhdCI6MTYyNzQ3MjcyNywiZXhwIjoxNjI3NDczMDI3fQ.uNrMYYFDgkbETKF_9H_hURa37Dv91iRaaBYzvaDoAzA
+
+{
+    "name":"Anurag Kumar"
+}
+
+### Route POST /api/user/request
+POST  http://localhost:3005/api/user/request
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZmJiMmIwZGM4ZDQ5Mjc1Y2NlZDYxYSJ9.whol-jR8CGesg8xQLpUZsQ0oGmuiW8VVGfOBHcuGk50
+
+{
+    "uid": 1079193660
+}
+
+
+### Route DELETE /api/user/request
+DELETE  http://localhost:3005/api/user/request
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDE0MzMzN2E5N2MwMWY2NDUxYTg3NCIsImlhdCI6MTYyNzQ3NjU0NCwiZXhwIjoxNjI3NDc2ODQ0fQ.Koy_24Fc8sZx1picZpm0niu3NpHMNlabRiUwktivU9s
+
+{
+    "uid": 7546517672
+}

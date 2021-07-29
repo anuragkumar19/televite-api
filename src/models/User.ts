@@ -3,15 +3,48 @@ import { Document, model, Schema } from 'mongoose'
 import { genUid } from '../utils/uid'
 import { User } from './types'
 
+// const ContactSchema = new Schema(
+//     {
+//         name: { type: String, required: true },
+//         uid: { type: Number, required: true },
+//     },
+//     { timestamps: true }
+// )
+
+const FriendSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    room: {
+        type: Schema.Types.ObjectId,
+        ref: 'Room',
+    },
+})
+
 const UserSchema = new Schema<User>(
     {
         email: {
             type: String,
             required: true,
         },
+        name: {
+            type: String,
+            default(this: User & Document): string {
+                return this.email.split('@')[0]
+            },
+        },
         otp: Number,
         otpExpiration: Number,
         uid: Number,
+        profilePicture: {
+            type: String,
+            default: '/assets/images/user-default.png',
+        },
+        // contacts: [ContactSchema],
+        sentRequests: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+        pendingRequests: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+        friends: [FriendSchema],
     },
     {
         timestamps: true,

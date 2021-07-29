@@ -3,7 +3,7 @@ POST http://localhost:3005/api/auth/login
 Content-Type: application/json
 
 {
-    "email":"test@anurag.com"
+    "email":"test@example.com"
 }
 
 ### Route POST /api/auth/verify-otp
@@ -11,20 +11,15 @@ POST http://localhost:3005/api/auth/verify-otp
 Content-Type: application/json
 
 {
-    "email":"test@anurag.com",
-    "otp":9884
+    "email":"test@example.com",
+    "otp":4276
 }
 
 ### Route POST /api/auth/refresh-token
-POST http://localhost:3005/api/auth/refresh-token
+PUT http://localhost:3005/api/auth/refresh-token
 Content-Type: application/json
 Cookie: "refresh_token=..."
 
 {
     "refreshToken":"...token OPTIONAL (if not present in cookie)"
 }
-
-
-### temp test
-GET http://localhost:3005/private
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZmJiMmIwZGM4ZDQ5Mjc1Y2NlZDYxYSIsImlhdCI6MTYyNzEyNzI2NywiZXhwIjoxNjI3MTI3NTY3fQ._Hg0_QiIB1JN4m9aj53nbZDMJZv54ZMAHSFlTiz4ceA

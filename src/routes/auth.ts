@@ -11,6 +11,6 @@ const router = Router()
 
 router.post('/login', validate(loginSchema), login)
 router.post('/verify-otp', validate(verifyOtpSchema), verifyOtp)
-router.post('/refresh-token', validate(refreshTokenSchema), refreshToken)
+router.put('/refresh-token', validate(refreshTokenSchema), refreshToken)
 
 export default router

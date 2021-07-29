@@ -72,15 +72,15 @@ test('POST /api/auth/verify-otp', async () => {
 })
 
 test('POST /api/auth/refresh-token', async () => {
-    await supertest(app).post('/api/auth/refresh-token').send({}).expect(401)
+    await supertest(app).put('/api/auth/refresh-token').send({}).expect(401)
 
     await supertest(app)
-        .post('/api/auth/refresh-token')
+        .put('/api/auth/refresh-token')
         .send({ refreshToken: 'anything' })
         .expect(401)
 
     await supertest(app)
-        .post('/api/auth/refresh-token')
+        .put('/api/auth/refresh-token')
         .send({ refreshToken: cred.accessToken })
         .expect(401)
 
@@ -89,7 +89,7 @@ test('POST /api/auth/refresh-token', async () => {
             data: { accessToken },
         },
     } = await supertest(app)
-        .post('/api/auth/refresh-token')
+        .put('/api/auth/refresh-token')
         .send({ refreshToken: cred.refreshToken })
         .expect(200)
 
@@ -97,16 +97,16 @@ test('POST /api/auth/refresh-token', async () => {
     cred.accessToken = accessToken
 })
 
-test('POST /private', async () => {
-    await supertest(app).get('/private').expect(401)
+test('POST /api/user/me', async () => {
+    await supertest(app).get('/api/user/me').expect(401)
 
     await supertest(app)
-        .get('/private')
+        .get('/api/user/me')
         .set('Authorization', 'bearer ' + cred.refreshToken)
         .expect(401)
 
     await supertest(app)
-        .get('/private')
+        .get('/api/user/me')
         .set('Authorization', 'bearer ' + cred.accessToken)
         .expect(200)
 })

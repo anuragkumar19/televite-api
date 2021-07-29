@@ -12,3 +12,11 @@ export const verifyOtpSchema = Joi.object({
 export const refreshTokenSchema = Joi.object({
     refreshToken: Joi.string(),
 })
+
+export const requestSchema = Joi.object({
+    uid: Joi.number().min(1000000000).max(9999999999).required(),
+})
+
+export const updateNameSchema = Joi.object({
+    name: Joi.string().trim().required(),
+})

@@ -1,12 +1,10 @@
 import { Router } from 'express'
-import { authorizeUserOnly } from '../middlewares/auth'
 import authRouter from './auth'
+import userRouter from './user'
 
 const router = Router()
 
 router.use('/api/auth', authRouter)
-
-// temp test route
-router.get('/private', authorizeUserOnly, (_req, res) => res.send('private'))
+router.use('/api/user', userRouter)
 
 export default router
