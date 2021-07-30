@@ -29,8 +29,10 @@ const main = async () => {
 
     const jwts = DBusers.map((user) => {
         return {
+            id: user._id,
             email: user.email,
             name: user.name,
+            uid: user.uid,
             accessToken: jwt.sign(
                 { id: user._id },
                 process.env.JWT_ACCESS_TOKEN_SECRET

@@ -98,3 +98,14 @@ export const refreshToken: ExpressHandler = asyncHandler(async (req, res) => {
         throw new Error('Unauthorized.')
     }
 })
+
+export const logOut: ExpressHandler = (_req, res) => {
+    res.cookie(process.env.REFRESH_TOKEN_COOKIE_NAME, 'logout', {
+        expires: new Date('12-12-2012'),
+        httpOnly: true,
+        secure: __prod__,
+        path: '/api/auth/refresh-token',
+    })
+        .status(200)
+        .json({ message: 'Logged out.' })
+}

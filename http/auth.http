@@ -12,7 +12,7 @@ Content-Type: application/json
 
 {
     "email":"test@example.com",
-    "otp":4276
+    "otp":4911
 }
 
 ### Route POST /api/auth/refresh-token
@@ -23,3 +23,7 @@ Cookie: "refresh_token=..."
 {
     "refreshToken":"...token OPTIONAL (if not present in cookie)"
 }
+
+### Route POST /api/auth/logout
+POST http://localhost:3005/api/auth/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDNhOTZmOTU4MjI1MmJjYzJjNTJjNCIsImlhdCI6MTYyNzYzMDA1MiwiZXhwIjoxNjI3NjMwMzUyfQ.9sgBgv-X50RGyfix_vF17MWjTN_uGYKXTXbtQpSX7vw

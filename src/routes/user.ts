@@ -17,7 +17,6 @@ router.get('/me', me)
 router.put('/update/name', validate(updateNameSchema), updateName)
 
 router.post('/request', validate(requestSchema), sendOrAcceptRequest)
-
 router.delete(
     '/request',
     validate(requestSchema),

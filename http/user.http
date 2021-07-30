@@ -2,12 +2,12 @@
 
 ### Route GET /api/user/me
 GET http://localhost:3005/api/user/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDE0MzMzN2E5N2MwMWY2NDUxYTg3NCIsImlhdCI6MTYyNzQ3NjU0NCwiZXhwIjoxNjI3NDc2ODQ0fQ.Koy_24Fc8sZx1picZpm0niu3NpHMNlabRiUwktivU9s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDJhMzg4NTM5MGYyMzc0Yzk1OTlhNyIsImlhdCI6MTYyNzU2Mjg4OH0.5DQuH6KVXTjMRQnH-ZP9tLhMrPt55M6T7wSQPV5xkFs
 
 ### Route PUT /api/user/update/name
 PUT http://localhost:3005/api/user/update/name
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDE0MzMzN2E5N2MwMWY2NDUxYTg3NCIsImlhdCI6MTYyNzQ3MjcyNywiZXhwIjoxNjI3NDczMDI3fQ.uNrMYYFDgkbETKF_9H_hURa37Dv91iRaaBYzvaDoAzA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDJhMzg4NTM5MGYyMzc0Yzk1OTlhNyIsImlhdCI6MTYyNzU2Mjg4OH0.5DQuH6KVXTjMRQnH-ZP9tLhMrPt55M6T7wSQPV5xkFs
 
 {
     "name":"Anurag Kumar"
@@ -16,18 +16,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDE0MzMzN
 ### Route POST /api/user/request
 POST  http://localhost:3005/api/user/request
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZmJiMmIwZGM4ZDQ5Mjc1Y2NlZDYxYSJ9.whol-jR8CGesg8xQLpUZsQ0oGmuiW8VVGfOBHcuGk50
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDJhMzg4NTM5MGYyMzc0Yzk1OTlhNyIsImlhdCI6MTYyNzU2Mjg4OH0.5DQuH6KVXTjMRQnH-ZP9tLhMrPt55M6T7wSQPV5xkFs
 
 {
-    "uid": 1079193660
+    "uid": 1503619500
 }
 
 
 ### Route DELETE /api/user/request
 DELETE  http://localhost:3005/api/user/request
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDE0MzMzN2E5N2MwMWY2NDUxYTg3NCIsImlhdCI6MTYyNzQ3NjU0NCwiZXhwIjoxNjI3NDc2ODQ0fQ.Koy_24Fc8sZx1picZpm0niu3NpHMNlabRiUwktivU9s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDJhMzg4NTM5MGYyMzc0Yzk1OTlhNyIsImlhdCI6MTYyNzU2Mjg4OH0.5DQuH6KVXTjMRQnH-ZP9tLhMrPt55M6T7wSQPV5xkFs
 
 {
-    "uid": 7546517672
+    "uid": 1271476664
 }
