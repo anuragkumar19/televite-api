@@ -1,9 +1,32 @@
 import asyncHandler from 'express-async-handler'
+import { PUBLIC_PROFILE_FIELDS } from '../constants'
 import Room from '../models/Room'
 import User from '../models/User'
 import { ExpressHandler } from '../types'
 
-export const me: ExpressHandler = (req, res) => res.status(200).json(req.user)
+export const me: ExpressHandler = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.user!._id)
+        .populate('friends', PUBLIC_PROFILE_FIELDS.join(' '))
+        .populate('pendingRequests', PUBLIC_PROFILE_FIELDS.join(' '))
+        .populate('sentRequests', PUBLIC_PROFILE_FIELDS.join(' '))
+
+    res.status(200).json(user)
+})
+
+export const getUsersPublicProfile: ExpressHandler = asyncHandler(
+    async (req, res) => {
+        const user = await User.findOne({
+            uid: req.params.uid as any as number,
+        }).select(PUBLIC_PROFILE_FIELDS.join(' '))
+
+        if (!user) {
+            res.status(404)
+            throw new Error('Not found')
+        }
+
+        res.status(200).json(user)
+    }
+)
 
 export const updateName: ExpressHandler = asyncHandler(async (req, res) => {
     req.user!.name = req.body.name as string

@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import {
     cancelOrRejectRequestOrUnfriendUser,
+    getUsersPublicProfile,
     me,
     sendOrAcceptRequest,
     updateName,
@@ -16,6 +17,7 @@ router.use(authorizeUserOnly)
 router.get('/me', me)
 router.put('/update/name', validate(updateNameSchema), updateName)
 
+router.get('/profile/:uid', getUsersPublicProfile)
 router.post('/request', validate(requestSchema), sendOrAcceptRequest)
 router.delete(
     '/request',

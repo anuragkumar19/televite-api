@@ -39,7 +39,8 @@ const UserSchema = new Schema<User>(
         uid: Number,
         profilePicture: {
             type: String,
-            default: '/assets/images/user-default.png',
+            default:
+                'https://res.cloudinary.com/instavite/image/upload/v1627977832/televite/images/663328_raszdw.png',
         },
         // contacts: [ContactSchema],
         sentRequests: [{ type: Schema.Types.ObjectId, ref: 'User' }],

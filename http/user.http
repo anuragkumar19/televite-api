@@ -31,3 +31,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDJhMzg4N
 {
     "uid": 1271476664
 }
+
+### Route GET /api/user/:uid
+GET  http://localhost:3005/api/user/profile/1271476664
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDJhMzg4NTM5MGYyMzc0Yzk1OTlhNyIsImlhdCI6MTYyNzU2Mjg4OH0.5DQuH6KVXTjMRQnH-ZP9tLhMrPt55M6T7wSQPV5xkFs
