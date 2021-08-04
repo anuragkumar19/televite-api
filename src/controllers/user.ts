@@ -6,7 +6,7 @@ import { ExpressHandler } from '../types'
 
 export const me: ExpressHandler = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user!._id)
-        .populate('friends', PUBLIC_PROFILE_FIELDS.join(' '))
+        .populate('friends.user', PUBLIC_PROFILE_FIELDS.join(' '))
         .populate('pendingRequests', PUBLIC_PROFILE_FIELDS.join(' '))
         .populate('sentRequests', PUBLIC_PROFILE_FIELDS.join(' '))
 
