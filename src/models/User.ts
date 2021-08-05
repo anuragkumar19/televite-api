@@ -56,6 +56,12 @@ const UserSchema = new Schema<User>(
     },
     {
         timestamps: true,
+        toJSON: {
+            getters: true,
+        },
+        toObject: {
+            getters: true,
+        },
     }
 )
 
