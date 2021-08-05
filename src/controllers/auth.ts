@@ -62,6 +62,7 @@ export const verifyOtp: ExpressHandler = asyncHandler(async (req, res) => {
         httpOnly: true,
         secure: __prod__,
         path: '/api/auth/refresh-token',
+        sameSite: 'none',
     })
 
     res.status(200).json({ data: { accessToken, refreshToken } })
@@ -105,6 +106,7 @@ export const logOut: ExpressHandler = (_req, res) => {
         httpOnly: true,
         secure: __prod__,
         path: '/api/auth/refresh-token',
+        sameSite: 'none',
     })
         .status(200)
         .json({ message: 'Logged out.' })
