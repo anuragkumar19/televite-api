@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken'
 import { Document, model, Schema } from 'mongoose'
+import cloudinary from '../config/cloudinary'
+import { DEFAULT_PROFILE_IMAGE } from '../constants'
 import { genUid } from '../utils/uid'
 import { User } from './types'
 
@@ -39,8 +41,13 @@ const UserSchema = new Schema<User>(
         uid: Number,
         profilePicture: {
             type: String,
-            default:
-                'https://res.cloudinary.com/instavite/image/upload/v1627977832/televite/images/663328_raszdw.png',
+            default: DEFAULT_PROFILE_IMAGE,
+            get: (v: string) =>
+                v == DEFAULT_PROFILE_IMAGE
+                    ? v
+                    : cloudinary.utils.private_download_url(v, '', {
+                          resource_type: 'image',
+                      }),
         },
         // contacts: [ContactSchema],
         sentRequests: [{ type: Schema.Types.ObjectId, ref: 'User' }],

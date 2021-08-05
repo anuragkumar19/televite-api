@@ -35,3 +35,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDJhMzg4N
 ### Route GET /api/user/:uid
 GET  http://localhost:3005/api/user/profile/1271476664
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDJhMzg4NTM5MGYyMzc0Yzk1OTlhNyIsImlhdCI6MTYyNzU2Mjg4OH0.5DQuH6KVXTjMRQnH-ZP9tLhMrPt55M6T7wSQPV5xkFs
+
+### Route PUT /api/user/update/profilePicture
+PUT http://localhost:3005/api/user/update/profilePicture
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDJhMzg4NTM5MGYyMzc0Yzk1OTlhNyIsImlhdCI6MTYyNzU2Mjg4OH0.5DQuH6KVXTjMRQnH-ZP9tLhMrPt55M6T7wSQPV5xkFs
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="Annotation 2021-07-12 125606.png"
+Content-Type: image/png
+
+< C:\Users\abhinav\Pictures\Screenshots\Annotation 2021-07-12 125606.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--

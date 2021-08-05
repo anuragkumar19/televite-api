@@ -201,3 +201,12 @@ export const cancelOrRejectRequestOrUnfriendUser: ExpressHandler = asyncHandler(
         res.status(400).json({ message: 'Can not perform this action' })
     }
 )
+
+export const updateProfilePicture: ExpressHandler = asyncHandler(
+    async (req, res) => {
+        req.user!.profilePicture = req.file!.filename
+        const user = await req.user!.save()
+
+        res.status(200).json({ data: user.profilePicture })
+    }
+)
