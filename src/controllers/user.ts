@@ -57,7 +57,7 @@ export const sendOrAcceptRequest: ExpressHandler = asyncHandler(
             ) !== -1
         ) {
             res.status(400)
-            throw new Error('Alrerady Friend')
+            throw new Error('Already Friend')
         }
 
         // If already send -> CLIENT_ERROR
@@ -65,7 +65,7 @@ export const sendOrAcceptRequest: ExpressHandler = asyncHandler(
             req.user!.sentRequests.findIndex((id) => user._id.equals(id)) !== -1
         ) {
             res.status(400)
-            throw new Error('Alrerady sent request')
+            throw new Error('Already sent request')
         }
 
         // If request pending -> ACCEPT_REQUEST & CREATE_ROOM & GIVE_ACCESS_TO_BOTH_IN_ROOM
@@ -87,7 +87,7 @@ export const sendOrAcceptRequest: ExpressHandler = asyncHandler(
                 users: [user._id, req.user!._id],
             })
 
-            // Add room and user's id to both users's friends[]
+            // Add room and user's id to both users' friends[]
             user.friends.push({
                 room: room._id,
                 user: req.user!._id,
@@ -174,7 +174,7 @@ export const cancelOrRejectRequestOrUnfriendUser: ExpressHandler = asyncHandler(
             await user.save()
             await req.user!.save()
 
-            res.status(200).json({ message: 'Friend request cancled' })
+            res.status(200).json({ message: 'Friend request canceled' })
             return
         }
 

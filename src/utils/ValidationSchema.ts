@@ -1,4 +1,5 @@
 import Joi from 'joi'
+import { isValidObjectId } from 'mongoose'
 
 export const loginSchema = Joi.object({
     email: Joi.string().lowercase().trim().email().required(),
@@ -19,4 +20,17 @@ export const requestSchema = Joi.object({
 
 export const updateNameSchema = Joi.object({
     name: Joi.string().trim().required(),
+})
+
+export const MessageSchema = Joi.object({
+    room: Joi.string()
+        .required()
+        .custom((v) => {
+            if (!isValidObjectId(v)) {
+                throw new Error('Invalid')
+            } else {
+                return v
+            }
+        }),
+    text: Joi.string().trim().required(),
 })

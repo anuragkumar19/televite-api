@@ -25,6 +25,14 @@ export interface User {
     generateRefreshToken: () => string
 }
 
+export interface Message {
+    text?: string
+    images: string[]
+    videos: string[]
+    files: string[]
+}
+
 export interface Room {
     users: ObjectId[]
+    messages: Message[]
 }
